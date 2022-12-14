@@ -40,6 +40,27 @@ def iniciar_sesion():
         return Response("{}", HTTPStatus.BAD_REQUEST)
     return Response("{}", HTTPStatus.BAD_REQUEST)
 
+@app.route("/eliminar", methods=["DELETE"])
+def eliminar_pelicula():
+    contador = 0
+    datos = request.get_json()
+    
+    if "id_pelicula" in datos:
+        for comentario in comentarios:
+            if comentario["id_pelicula"] == datos["id_pelicula"]:
+                if comentario["id_usuario"] != sesion["id"]:
+                    contador = contador + 1
+        if contador != 0:
+            return Response("{}", HTTPStatus.BAD_REQUEST)
+        else:
+            for pelicula in peliculas:
+                if pelicula["id_pelicula"] == datos["id_pelicula"]:
+                    peliculas.remove(pelicula)
+                    print(peliculas)
+            return Response("{}", HTTPStatus.OK)
 
+    return Response("{}", HTTPStatus.BAD_REQUEST)
+
+    
 
 
