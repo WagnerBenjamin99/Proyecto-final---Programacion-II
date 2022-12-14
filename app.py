@@ -61,6 +61,38 @@ def eliminar_pelicula():
 
     return Response("{}", HTTPStatus.BAD_REQUEST)
 
-    
+@app.route("/editar", methods=["PUT"])
+def editar_pelicula():
+    datos = request.get_json()
+    for pelicula in peliculas:
+        if pelicula["id_pelicula"]== datos["id_pelicula"]:
+            if 'titulo' in datos:
+                for pelicula in peliculas:
+                    if datos["id_pelicula"]==pelicula["id_pelicula"]:
+                        pelicula["titulo"]=datos["titulo"]
+                        Response("{}", HTTPStatus.OK)
+            elif 'portada' in datos:
+                for pelicula in peliculas:
+                    if datos["id_pelicula"]==pelicula["id_pelicula"]:
+                        pelicula["postada"]=datos["portada"]
+                        Response("{}", HTTPStatus.OK)
+            elif 'sinopsis' in datos:
+                for pelicula in peliculas:
+                    if datos["id_pelicula"]==pelicula["id_pelicula"]:
+                        pelicula["sinopsis"]=datos["sinopsis"]
+                        Response("{}", HTTPStatus.OK)
+            elif 'año' in datos:
+                for pelicula in peliculas:
+                    if datos["id_pelicula"]==pelicula["id_pelicula"]:
+                        pelicula["año"]=datos["año"]
+                        Response("{}", HTTPStatus.OK)
+            elif 'genero' in datos:
+                for pelicula in peliculas:
+                    if datos["id_pelicula"]==pelicula["id_pelicula"]:
+                        pelicula["genero"]=datos["genero"]
+                        return Response("{}", HTTPStatus.OK)
+            else:
+                return Response("{}", HTTPStatus.BAD_REQUEST)
+    return Response("{}", HTTPStatus.BAD_REQUEST)
 
 
