@@ -1,0 +1,32 @@
+[
+    {
+        "id_director":1,
+        "nombre":"Chris",
+        "apellido":"Columbus"
+    },
+
+    {
+        "id_director":2,
+        "nombre":"Steven",
+        "apellido":"Spielberg"
+    },
+
+    {
+        "id_director":3,
+        "nombre":"Quentin",
+        "apellido":"Tarantino"
+    },
+
+    {
+        "id_director":4,
+        "nombre":"Clint",
+        "apellido":"Eastwood"
+    },
+
+    {
+        "id_director":5,
+        "nombre":"Christopher",
+        "apellido":"Nolan"
+    }
+
+]

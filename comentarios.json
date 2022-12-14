@@ -1,0 +1,158 @@
+[
+    {
+        "id_usuario":1,
+        "id_pelicula":1,
+        "cuerpo":"Excelente pelicula"
+    },
+    {
+        "id_usuario":2,
+        "id_pelicula":2,
+        "cuerpo":"Aguante Harry Poteeer!!!!"
+    },
+    {
+        "id_usuario":3,
+        "id_pelicula":2,
+        "cuerpo":"MUY BUENAA"
+    },
+    {
+        "id_usuario":1,
+        "id_pelicula":2,
+        "cuerpo":"Excelente"
+    },
+    {
+        "id_usuario":4,
+        "id_pelicula":2,
+        "cuerpo":"De las mejores"
+    },
+    {
+        "id_usuario":5,
+        "id_pelicula":2,
+        "cuerpo":"mas o menosss"
+    },
+    {
+        "id_usuario":2,
+        "id_pelicula":3,
+        "cuerpo":"buenaaarda"
+    },
+    {
+        "id_usuario":3,
+        "id_pelicula":3,
+        "cuerpo":"10 PUNTOSS"
+    },
+    {
+        "id_usuario":2,
+        "id_pelicula":3,
+        "cuerpo":"buenisima"
+    },
+    {
+        "id_usuario":2,
+        "id_pelicula":4,
+        "cuerpo":"Excelente pelicula"
+    },
+    {
+        "id_usuario":3,
+        "id_pelicula":4,
+        "cuerpo":"goooood"
+    },
+    {
+        "id_usuario":4,
+        "id_pelicula":4,
+        "cuerpo":"me dormi :|"
+    },
+    {
+        "id_usuario":1,
+        "id_pelicula":4,
+        "cuerpo":"de las de antes ah"
+    },
+    {
+        "id_usuario":3,
+        "id_pelicula":5,
+        "cuerpo":"meee"
+    },
+    {
+        "id_usuario":5,
+        "id_pelicula":5,
+        "cuerpo":":D"
+    },
+    {
+        "id_usuario":2,
+        "id_pelicula":5,
+        "cuerpo":"BUENAAAA"
+    },
+    {
+        "id_usuario":1,
+        "id_pelicula":6,
+        "cuerpo":"Caaasi me gusta"
+    },
+    {
+        "id_usuario":5,
+        "id_pelicula":6,
+        "cuerpo":"Bueeena puclia"
+    },
+    {
+        "id_usuario":3,
+        "id_pelicula":6,
+        "cuerpo":"Excelente"
+    },
+    {
+        "id_usuario":2,
+        "id_pelicula":7,
+        "cuerpo":"safa"
+    },
+
+    {
+        "id_usuario":5,
+        "id_pelicula":7,
+        "cuerpo":"la vi con mi familia :D"
+    },
+    {
+        "id_usuario":1,
+        "id_pelicula":7,
+        "cuerpo":"10!!!!!!!"
+    },
+    {
+        "id_usuario":4,
+        "id_pelicula":8,
+        "cuerpo":"como Messi de buena."
+    },
+    {
+        "id_usuario":2,
+        "id_pelicula":8,
+        "cuerpo":"uffff"
+    },
+    {
+        "id_usuario":3,
+        "id_pelicula":8,
+        "cuerpo":"mis viejos tiempos"
+    },
+    {
+        "id_usuario":5,
+        "id_pelicula":9,
+        "cuerpo":"cuando sale la que siguee"
+    },
+    {
+        "id_usuario":2,
+        "id_pelicula":9,
+        "cuerpo":"a mimirr"
+    },
+    {
+        "id_usuario":1,
+        "id_pelicula":9,
+        "cuerpo":"boeeeeeno"
+    },
+    {
+        "id_usuario":3,
+        "id_pelicula":10,
+        "cuerpo":"sin palabrassss"
+    },
+    {
+        "id_usuario":4,
+        "id_pelicula":10,
+        "cuerpo":"me encantooo!!!!"
+    },
+    {
+        "id_usuario":2,
+        "id_pelicula":10,
+        "cuerpo":"Excelente pelicula"
+    }
+]

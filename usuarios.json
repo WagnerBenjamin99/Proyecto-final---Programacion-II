@@ -1,0 +1,27 @@
+[
+    {
+        "id_usuario":1,
+        "nombre_usuario":"Benjamin",
+        "contraseña":"12345"
+    },
+    {
+        "id_usuario":2,
+        "nombre_usuario":"Franco",
+        "contraseña":"Franco"
+    },
+    {
+        "id_usuario":3,
+        "nombre_usuario":"Mauro",
+        "contraseña":"12345"
+    },{
+        "id_usuario":4,
+        "nombre_usuario":"Luca",
+        "contraseña":"12345"
+        
+    },
+    {
+        "id_usuario":5,
+        "nombre_usuario":"Emi",
+        "contraseña":"12345"
+    }
+]
