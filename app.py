@@ -17,6 +17,8 @@ with open("peliculas.json", encoding='utf-8') as json_:
     peliculas = json.load(json_)
 with open("comentarios.json", encoding='utf-8') as json_:
     comentarios = json.load(json_)
+with open("generos.json", encoding='utf-8') as json_:
+    generos = json.load(json_)
 
 sesion={}
 
@@ -86,13 +88,13 @@ def editar_pelicula():
                     if datos["id_pelicula"]==pelicula["id_pelicula"]:
                         pelicula["año"]=datos["año"]
                         Response("{}", HTTPStatus.OK)
-            elif 'genero' in datos:
+            elif 'id_genero' in datos:
                 for pelicula in peliculas:
                     if datos["id_pelicula"]==pelicula["id_pelicula"]:
-                        pelicula["genero"]=datos["genero"]
+                        pelicula["id_genero"]=datos["id_genero"]
                         return Response("{}", HTTPStatus.OK)
             else:
                 return Response("{}", HTTPStatus.BAD_REQUEST)
-    return Response("{}", HTTPStatus.BAD_REQUEST)
+    return Response("{}", HTTPStatus.BAD_REQUEST) 
 
 

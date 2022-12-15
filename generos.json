@@ -1,0 +1,30 @@
+[
+    {
+        "id_genero":1,
+        "genero":"Terror"
+    },
+    {
+        "id_genero":2,
+        "genero":"Drama"
+    },
+    {
+        "id_genero":3,
+        "genero":"Accion"
+    },
+    {
+        "id_genero":4,
+        "genero":"Psicologico"
+    },
+    {
+        "id_genero":5,
+        "genero":"Aventura"
+    },
+    {
+        "id_genero":6,
+        "genero":"Ficcion"
+    },
+    {
+        "id_genero":7,
+        "genero":"Comedia"
+    }
+]
