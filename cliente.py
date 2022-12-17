@@ -149,3 +149,45 @@ while True:
                         system('cls')
                         print(Fore.RED + 'Opcion incorrecta')
                         continue 
+
+                    elif opcion1 == 3:
+                        datos={}
+
+                    directores=requests.get('http://127.0.0.1:5000/directores').json()
+
+                    datos['titulo'] = input("Ingrese el titulo: ")        
+                    datos['año'] = input('Ingrese el año: ')
+                    
+                    generos = requests.get('http://127.0.0.1:5000/generos').json()
+                    for genero in generos:
+                            print(Fore.RED + str(genero['id_genero']), Fore.GREEN + genero['genero'])
+
+                    genero_seleccionado = int(input(Fore.MAGENTA + 'Seleccione el genero: '))
+
+                    for genero in generos:
+                        if genero['id_genero'] == genero_seleccionado:
+                            datos['id_genero'] = genero['id_genero']
+
+                    datos['sinopsis']=input(Fore.MAGENTA + 'Ingrese la sinopsis: ')
+                    
+                    for director in directores:
+                        print(director["id_director"], " - ", director["nombre"])
+                    
+                    director= int(input(Fore.MAGENTA + 'Seleccione el director: '))
+                    datos["id_director"] = director 
+                    portada = input(Fore.MAGENTA + 'Ingrese la portada: ')
+                    datos['portada'] = portada
+                    comentario=int(input(Fore.GREEN + 'Si desea agregar una opinion personal ingrese [1] de lo contrario ingrese [2]: '))
+                    if comentario == 2:
+                        respuesta = requests.post('http://127.0.0.1:5000/agregar', json=datos).json()
+                    else:
+                        comentario=input(Fore.MAGENTA + 'Ingrese su opinion sobre esta pelicula: ')
+                        datos['comentario']=comentario
+                        respuesta = requests.post('http://127.0.0.1:5000/agregar', json=datos).json()
+                else:
+                    print(Fore.RED +'Opcion incorrecta')
+                    continue
+    else:
+        system('cls')
+        print(Fore.RED + 'Opcion incorrecta')
+        continue
