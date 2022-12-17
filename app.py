@@ -37,7 +37,6 @@ def iniciar_sesion():
     if "nombre_usuario" in datos and "contraseña" in datos:
         for usuario in usuarios:
             if usuario["nombre_usuario"] == datos["nombre_usuario"] and usuario["contraseña"] == datos["contraseña"]:
-                sesion["id"]=usuario["id_usuario"]
                 return Response("{}", status=HTTPStatus.OK)
         return Response("{}", HTTPStatus.BAD_REQUEST)
     return Response("{}", HTTPStatus.BAD_REQUEST)
@@ -50,7 +49,7 @@ def eliminar_pelicula():
     if "id_pelicula" in datos:
         for comentario in comentarios:
             if comentario["id_pelicula"] == datos["id_pelicula"]:
-                if comentario["id_usuario"] != sesion["id"]:
+                if comentario["id_usuario"] != datos['id_sesion']:
                     contador = contador + 1
         if contador != 0:
             return Response("{}", HTTPStatus.BAD_REQUEST)
