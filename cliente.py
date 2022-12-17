@@ -63,4 +63,89 @@ while True:
             system('cls')
             print(Fore.RED + 'Usuario no registrado')
             continue
-      
+        else:
+            system('cls')
+            id_sesion = respuesta1.json()['id_usuario']
+            print(Fore.YELLOW + 'Bienvenido ' + nombre + '!!')
+            while(True):
+                print(Fore.GREEN + menu_registrado)
+                
+                opcion1=0
+                opcion1 = int(input(Fore.MAGENTA + 'Ingrese opcion: '))
+                if opcion1 == 4:
+                    system('cls')
+                    break
+                elif opcion1 == 1:
+                    system('cls')
+                    print('Peliculas disponibles:\n')
+                    
+                    respuesta = requests.get('http://127.0.0.1:5000/').json()
+                    for pelicula in respuesta:
+                        print(Fore.GREEN + str(pelicula['id_pelicula']), '-', Fore.BLUE + pelicula['titulo'])
+                        
+                    id = int(input('Seleccione la pelicula que desea elimiar: '))
+                    datos_delete={"id_pelicula": id, "id_sesion":id_sesion}
+                    respuesta3 = requests.delete('http://127.0.0.1:5000/eliminar', json=datos_delete)
+                    if respuesta3.status_code != 200:
+                        system('cls')
+                        print(Fore.RED + 'No puede eliminar esta pelicula porque contiene comentario de otros usuarios')
+                    else:
+                        system('cls')
+                        print(Fore.GREEN + 'Pelicula eliminada con exito')
+                elif opcion1 == 2:
+                    system('cls')
+                    print('Peliculas disponibles:\n')
+                    
+                    respuesta = requests.get('http://127.0.0.1:5000/').json()
+                    for pelicula in respuesta:
+                        print(Fore.GREEN + str(pelicula['id_pelicula']), '-', Fore.BLUE + pelicula['titulo'])
+                    id = int(input('Seleccione la pelicula que desea editar: '))
+                    
+                    datos_edicion={}
+                    
+                    print(Fore.GREEN + menu_edicion)
+                    
+                    edicion= int(input(Fore.MAGENTA + 'Seleccione campo a editar: '))
+                    if edicion == 1:
+                        system('cls')
+                        actualizado=input(Fore.MAGENTA + 'Ingrese el titulo: ')
+                        datos_edicion={"id_pelicula":id, "titulo":actualizado}
+                        respuesta = requests.put('http://127.0.0.1:5000/editar', json=datos_edicion).json()
+                    elif edicion == 2:
+                        system('cls')
+                        generos = requests.get('http://127.0.0.1:5000/generos').json()
+                        for genero in generos:
+                            print(Fore.RED + str(genero['id_genero']), Fore.GREEN + genero['genero'])
+                        actualizado = int(input(Fore.MAGENTA + 'Seleccione el genero: '))
+
+                        for genero in generos:
+                            if genero['id_genero'] == actualizado:
+                                datos_edicion={"id_pelicula":id, "id_genero": genero['id_genero']}
+                        respuesta = requests.put('http://127.0.0.1:5000/editar', json=datos_edicion).json()
+                    elif edicion == 3:
+                        system('cls')
+                        actualizado=input(Fore.MAGENTA + 'Ingrese el año: ')
+                        datos_edicion={"id_pelicula":id, "año":actualizado}
+                        respuesta = requests.put('http://127.0.0.1:5000/editar', json=datos_edicion).json()
+                    elif edicion == 4:
+                        system('cls')
+                        actualizado=input(Fore.MAGENTA + 'Ingrese la portada: ')
+                        datos_edicion={"id_pelicula":id, "portada":actualizado}
+                        respuesta = requests.put('http://127.0.0.1:5000/editar', json=datos_edicion).json()
+                    elif edicion == 5:
+                        system('cls')
+                        actualizado=input(Fore.MAGENTA + 'Ingrese la sinopsis: ')
+                        datos_edicion={"id_pelicula":id, "sinopsis":actualizado}
+                        respuesta = requests.put('http://127.0.0.1:5000/editar', json=datos_edicion).json()
+                    elif edicion == 6:
+                        directores=requests.get('http://127.0.0.1:5000/directores')
+                        for director in directores:
+                            print(director["id_director"], " - ", director["nombre"])
+
+                        director_seleccionado = int(input(Fore.MAGENTA + 'Seleccione el genero: '))
+                        datos_edicion={'id_director':director_seleccionado}
+                        respuesta = requests.put('http://127.0.0.1:5000/editar', json=datos_edicion).json()
+                    else:
+                        system('cls')
+                        print(Fore.RED + 'Opcion incorrecta')
+                        continue 
