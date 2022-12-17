@@ -61,7 +61,7 @@ def iniciar_sesion():
     if "nombre_usuario" in datos and "contraseña" in datos:
         for usuario in usuarios:
             if usuario["nombre_usuario"] == datos["nombre_usuario"] and usuario["contraseña"] == datos["contraseña"]:
-                return Response("{}", status=HTTPStatus.OK)
+                return  jsonify(usuario)
         return Response("{}", HTTPStatus.BAD_REQUEST)
     return Response("{}", HTTPStatus.BAD_REQUEST)
 

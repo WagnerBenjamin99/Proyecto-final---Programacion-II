@@ -150,8 +150,8 @@ while True:
                         print(Fore.RED + 'Opcion incorrecta')
                         continue 
 
-                    elif opcion1 == 3:
-                        datos={}
+                elif opcion1 == 3:
+                    datos={}
 
                     directores=requests.get('http://127.0.0.1:5000/directores').json()
 
