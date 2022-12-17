@@ -22,6 +22,22 @@ with open("generos.json", encoding='utf-8') as json_:
 
 sesion={}
 
+@app.route('/generos')
+def get_generos():
+    return jsonify(generos)
+
+@app.route('/directores')
+def get_directores():
+    return jsonify(directores)
+
+@app.route('/filtrar/director/<id>')
+def filtrar_pordirector(id):
+    filtradas=[]
+    print(id)
+    for pelicula in peliculas:
+        if pelicula["id_director"] == int(id):
+            filtradas.append(pelicula)
+    return jsonify(filtradas)
 
 @app.route('/')
 def home():
