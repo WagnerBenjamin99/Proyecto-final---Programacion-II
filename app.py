@@ -39,6 +39,14 @@ def filtrar_pordirector(id):
             filtradas.append(pelicula)
     return jsonify(filtradas)
 
+@app.route('/filtrar/portada')
+def filtrar_portada():
+    filtradas = []
+    for pelicula in peliculas:
+        if pelicula['portada'] != '':
+            filtradas.append(pelicula)
+    return jsonify(filtradas)
+
 @app.route('/')
 def home():
     print('aaaa')
