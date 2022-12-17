@@ -97,4 +97,31 @@ def editar_pelicula():
                 return Response("{}", HTTPStatus.BAD_REQUEST)
     return Response("{}", HTTPStatus.BAD_REQUEST) 
 
+@app.route('/agregar', methods=["POST"])
+def agregar_pelicula():
+    id = peliculas[-1]['id_pelicula'] + 1
+    datos = request.get_json()
+    if "titulo" in datos and "id_director" in datos and "portada" in datos:
+        if "sinopsis" in datos and "año" in datos and "id_genero" in datos:
+            peliculas.append({
+            "titulo":datos['titulo'],
+            "id_pelicula":id,
+            "sinopsis":datos['sinopsis'],
+            "id_genero":datos["id_genero"],
+            "año":datos["año"],
+            "id_director":datos["id_director"],
+            "portada":datos["portada"]
+            })
+            if 'comentario' in datos:
+                comentarios.append(
+                    {
+                        'id_usuario':sesion,
+                        'id_pelicula':id,
+                        'cuerpo':datos['comentario']
+                    }
+                )
+            return Response("{}", HTTPStatus.OK)
+        return Response("{}", HTTPStatus.BAD_REQUEST) 
+    return Response("{}", HTTPStatus.BAD_REQUEST) 
+
 
