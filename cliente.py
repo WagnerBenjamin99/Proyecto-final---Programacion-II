@@ -37,9 +37,9 @@ while True:
         break
     elif opcion == 2:
         resp = requests.get('http://127.0.0.1:5000/')
-        print(resp)
         
         respuesta = resp.json()
+        print(respuesta)
         for pelicula in respuesta:
             for i, j in pelicula.items():
                 if i =='id_genero':

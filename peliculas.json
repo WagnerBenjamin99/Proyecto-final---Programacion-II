@@ -12,7 +12,7 @@
         "id_director":1,
         "id_pelicula":2,
         "titulo":"Harry potter y la camara secreta",
-        "portada":"https://www.wizardingworld.com/_next/image?url=%2Fimages%2Fproducts%2Ffilms%2Frectangle-2.png&w=1320&q=75",
+        "portada":"",
         "año" : 2002,
         "sinopsis": "Terminado el verano, Harry no ve la hora de abandonar la casa de sus odiosos tíos. Inesperadamente se presenta en su dormitorio Dobby, un elfo doméstico, que le anuncia que correrá un gran peligro si vuelve a Hogwarts. ",
         "genero":"Ficcion"

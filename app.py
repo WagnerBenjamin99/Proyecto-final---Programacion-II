@@ -22,6 +22,12 @@ with open("generos.json", encoding='utf-8') as json_:
 
 sesion={}
 
+
+@app.route('/')
+def home():
+    ultimas_peliculas=peliculas[-10:]
+    return jsonify(ultimas_peliculas)
+
 @app.route('/generos')
 def get_generos():
     return jsonify(generos)
@@ -46,11 +52,6 @@ def filtrar_portada():
         if pelicula['portada'] != '':
             filtradas.append(pelicula)
     return jsonify(filtradas)
-
-@app.route('/')
-def home():
-    print('aaaa')
-    return jsonify(peliculas)
 
 @app.route('/login', methods=["POST"])
 def iniciar_sesion():
