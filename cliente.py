@@ -15,7 +15,8 @@ menu_registrado="""
 [1] Eliminar pelicula
 [2] Editar pelicula
 [3] Agregar pelicula
-[4] Cerrar sesion
+[4] Ver comentarios
+[5] Cerrar sesion
 """
 
 menu_edicion="""
@@ -24,6 +25,7 @@ menu_edicion="""
 [3] Editar fecha
 [4] Editar portada
 [5] Editar sinopsis
+[6] Editar director
 """
 
 
@@ -72,7 +74,7 @@ while True:
                 
                 opcion1=0
                 opcion1 = int(input(Fore.MAGENTA + 'Ingrese opcion: '))
-                if opcion1 == 4:
+                if opcion1 == 5:
                     system('cls')
                     break
                 elif opcion1 == 1:
@@ -140,7 +142,7 @@ while True:
                     elif edicion == 6:
                         directores=requests.get('http://127.0.0.1:5000/directores')
                         for director in directores:
-                            print(director["id_director"], " - ", director["nombre"])
+                            print(director["id_director"], " - ", director["nombre"] + director["apellido"])
 
                         director_seleccionado = int(input(Fore.MAGENTA + 'Seleccione el genero: '))
                         datos_edicion={'id_director':director_seleccionado}
@@ -171,7 +173,7 @@ while True:
                     datos['sinopsis']=input(Fore.MAGENTA + 'Ingrese la sinopsis: ')
                     
                     for director in directores:
-                        print(director["id_director"], " - ", director["nombre"])
+                        print(director["id_director"], " - ", director["nombre"] + ' ' + director["apellido"])
                     
                     director= int(input(Fore.MAGENTA + 'Seleccione el director: '))
                     datos["id_director"] = director 
@@ -183,7 +185,23 @@ while True:
                     else:
                         comentario=input(Fore.MAGENTA + 'Ingrese su opinion sobre esta pelicula: ')
                         datos['comentario']=comentario
+                        datos['id_usuario']=id_sesion
                         respuesta = requests.post('http://127.0.0.1:5000/agregar', json=datos).json()
+                elif opcion1 == 4:
+                    datos={}
+                    print('Peliculas disponibles:\n')
+                    
+                    respuesta = requests.get('http://127.0.0.1:5000/').json()
+                    for pelicula in respuesta:
+                        print(Fore.GREEN + str(pelicula['id_pelicula']), '-', Fore.BLUE + pelicula['titulo'])
+                        
+                    id = int(input('Seleccione la pelicula para ver sus comentarios: '))
+                    datos['id_pelicula']=id
+
+                    comentarios = requests.post('http://127.0.0.1:5000/pelicula/comentarios', json=datos).json()
+                    for comentario in comentarios:
+                        for i,j in comentario.items():
+                            print(i, '-', j)
                 else:
                     print(Fore.RED +'Opcion incorrecta')
                     continue

@@ -36,6 +36,17 @@ def get_generos():
 def get_directores():
     return jsonify(directores)
 
+@app.route('/pelicula/comentarios', methods=['POST'])
+def comentarios_pelicula():
+    lista_comentarios=[]
+    datos = request.get_json()
+    if 'id_pelicula' in datos:
+        for comentario in comentarios:
+            if datos['id_pelicula']==comentario['id_pelicula']:
+                lista_comentarios.append(comentario)
+        return jsonify(lista_comentarios)
+    
+
 @app.route('/filtrar/director/<id>')
 def filtrar_pordirector(id):
     filtradas=[]
@@ -139,7 +150,7 @@ def agregar_pelicula():
             if 'comentario' in datos:
                 comentarios.append(
                     {
-                        'id_usuario':sesion,
+                        'id_usuario':datos['id_usuario'],
                         'id_pelicula':id,
                         'cuerpo':datos['comentario']
                     }
